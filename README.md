@@ -1,5 +1,3 @@
 # AWS Connector
 
-This is a simple example package. You can use
-[Github-flavored Markdown](https://guides.github.com/features/mastering-markdown/)
-to write your content.
+This tool provides a AWS CLI connector where you can switch roles to the account you want access to. 
