@@ -25,7 +25,9 @@ setuptools.setup(
     test_suite='tests',
     python_requires=">=3.9",
     install_requires=[
-        'pyyaml>=5.4.1'
+        'pyyaml>=5.4.1',
+        'simple-term-menu>=1.2.1',
+        'boto>=2.49.0'
     ],
-    scripts=['bin/aws-connector'],
+    scripts=['bin/connect'],
 )
