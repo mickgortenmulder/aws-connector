@@ -1,0 +1,6 @@
+#!/usr/bin/env python3
+
+from src.aws_connector import Run
+
+connect = Menu()
+connect.now()

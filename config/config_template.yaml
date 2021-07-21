@@ -1,0 +1,22 @@
+---
+# Config example:
+#
+# email: example@company.nl
+# mfa_account_id: 111111111111
+# accounts:
+#   account_name1:
+#     id: 111111111111
+#     default_region: eu-west-1
+#     default_output: text
+#     available_roles:
+#       - role_name1
+#       - role_name2
+#       - role_name3
+#   account_name2:
+#     id: 111111111112
+#     default_region: eu-west-1
+#     default_output: text
+#     available_roles:
+#       - role_name1
+#       - role_name2
+#       - role_name3

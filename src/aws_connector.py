@@ -1,0 +1,118 @@
+from aws_connector.version import Version
+from aws_connector.account_config import AccountConfig
+from aws_connector.connector import Connector
+from simple_term_menu import TerminalMenu
+import os
+import time
+
+def main():
+    main_menu_title = "  AWS Connector using accounts to assume roles\n"
+    main_menu_items = ["1. Switch role",
+        "2. Print version",
+        "3. Exit"
+    ]
+    main_menu_cursor = "> "
+    main_menu_cursor_style = ("fg_red", "bold")
+    main_menu_style = ("bg_red", "fg_yellow")
+    main_menu_exit = False
+
+    main_menu = TerminalMenu(
+        menu_entries=main_menu_items,
+        title=main_menu_title,
+        menu_cursor=main_menu_cursor,
+        menu_cursor_style=main_menu_cursor_style,
+        menu_highlight_style=main_menu_style,
+        cycle_cursor=True,
+        clear_screen=True,
+    )
+
+    accounts = AccountConfig()
+    selected_account_menu_title = "  Select account\n"
+    selected_account_menu_items = [*accounts.get_accounts(), *["Back to Main Menu"]]
+    selected_account_menu_back = False
+    selected_account_menu = TerminalMenu(
+        selected_account_menu_items,
+        title=selected_account_menu_title,
+        menu_cursor=main_menu_cursor,
+        menu_cursor_style=main_menu_cursor_style,
+        menu_highlight_style=main_menu_style,
+        cycle_cursor=True,
+        clear_screen=True,
+    )
+
+    version = Version()
+    version_menu_title = " AWS connector version: " + version.version + "\n"
+    version_menu_items = ["Back to Main Menu"]
+    version_menu_back = False
+    version_menu = TerminalMenu(
+        version_menu_items,
+        title=version_menu_title,
+        menu_cursor=main_menu_cursor,
+        menu_cursor_style=main_menu_cursor_style,
+        menu_highlight_style=main_menu_style,
+        cycle_cursor=True,
+        clear_screen=True,
+    )
+
+    while not main_menu_exit:
+        main_sel = main_menu.show()
+
+        # Option 1. Connect using MFA
+        if main_sel == 0:
+            while not selected_account_menu_back:
+                account_edit_sel = selected_account_menu.show()
+                if account_edit_sel == [i for i,x in enumerate(selected_account_menu_items) if x == "Back to Main Menu"][0]:
+                    selected_account_menu_back = True
+                    print("Back Selected")
+                else:
+                    selected_role_menu_title = "  Select role\n"
+                    selected_role_menu_items = [*accounts.get_account_roles(selected_account_menu_items[account_edit_sel]), *["Back to Main Menu"]]
+                    selected_role_menu_back = False
+                    selected_role_menu = TerminalMenu(
+                        selected_role_menu_items,
+                        title=selected_role_menu_title,
+                        menu_cursor=main_menu_cursor,
+                        menu_cursor_style=main_menu_cursor_style,
+                        menu_highlight_style=main_menu_style,
+                        cycle_cursor=True,
+                        clear_screen=True,
+                    )
+
+                    while not selected_role_menu_back:
+                        role_edit_sel = selected_role_menu.show()
+                        if role_edit_sel == [i for i,x in enumerate(selected_role_menu_items) if x == "Back to Main Menu"][0]:
+                            selected_role_menu_back = True
+                            print("Back Selected")
+                        else:
+                            # account_details = accounts.get_account(selected_account_menu_items[account_edit_sel])
+
+                            selected_role_menu_back = True
+                            selected_account_menu_back = True
+                            main_menu_exit = True
+
+                            connect = Connector()
+                            connect.assume_role(selected_account_menu_items[account_edit_sel],
+                                                selected_role_menu_items[role_edit_sel])
+                            print("Exiting shell")
+
+                    selected_role_menu_back = False
+            selected_account_menu_back = False
+
+
+        # Option 2. Print AWS Connector version
+        elif main_sel == 1:
+            while not version_menu_back:
+                edit_sel = version_menu.show()
+                if edit_sel == 0:
+                    version_menu_back = True
+                    print("Back Selected")
+            version_menu_back = False
+
+        # Option 3. Exit
+        elif main_sel == 2:
+            main_menu_exit = True
+            print("Exit selected")
+
+
+if __name__ == "__main__":
+    main()
