@@ -6,7 +6,6 @@ from aws_connector.account_config import AccountConfig
 class Connector:
     def __init__(self):
         self.config = AccountConfig()
-        # self.mfa_serial = "arn:aws:iam::842033685690:mfa/mick.gortenmulder@conclusion.nl"
         email = self.config.load_config()['email']
         mfa_account_id = str(self.config.load_config()['mfa_account_id'])
         self.mfa_serial = "arn:aws:iam::" + mfa_account_id + ":mfa/" + email
