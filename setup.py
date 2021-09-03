@@ -23,7 +23,7 @@ setuptools.setup(
     package_dir={"": "src"},
     packages=setuptools.find_packages(where="src"),
     test_suite='tests',
-    python_requires=">=3.9",
+    python_requires=">=3.8",
     install_requires=[
         'pyyaml>=5.4.1',
         'simple-term-menu>=1.2.1',

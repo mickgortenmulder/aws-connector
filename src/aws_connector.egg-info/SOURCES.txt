@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+bin/connect
+src/aws_connector/__init__.py
+src/aws_connector/account_config.py
+src/aws_connector/connector.py
+src/aws_connector/version.py
+src/aws_connector.egg-info/PKG-INFO
+src/aws_connector.egg-info/SOURCES.txt
+src/aws_connector.egg-info/dependency_links.txt
+src/aws_connector.egg-info/requires.txt
+src/aws_connector.egg-info/top_level.txt

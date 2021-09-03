@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: aws-connector
+Version: 0.0.1
+Summary: AWS connector
+Home-page: https://github.com/mickgortenmulder/aws-connector
+Author: Mick Gortenmulder
+Author-email: mickgortenmulder@gmail.com
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/mickgortenmulder/aws-connector/issues
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# AWS Connector
+
+This tool provides a AWS CLI connector where you can switch roles to the account you want access to. 
+
+
