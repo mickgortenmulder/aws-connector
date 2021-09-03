@@ -3,10 +3,14 @@
 This tool provides a AWS CLI connector where you can switch roles to the account you want access to.
 
 # Get started
-## Generate config
-Copy the file config/config_template.yaml to ~/.aws/aws-connector/config.yaml and fill in the file before you start.
+## AWS config
+This connector relies on the AWS config and credential setup to connect with the main account.
+Information can be found here: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html
 
-## Start the tool
+## Generate config
+Copy the file config/config_template.yaml to ~/.aws/awsc-config.yaml and fill in the file before you start.
+
+## Start
 ```
   awsc
 ```
