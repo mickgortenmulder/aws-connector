@@ -1,1 +1,6 @@
 config/config.yaml
+dist
+dist/*
+src/aws_connector.egg-info
+src/aws_connector/__pycache__
+src/__pycache__

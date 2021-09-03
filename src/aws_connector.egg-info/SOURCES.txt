@@ -3,7 +3,7 @@ README.md
 pyproject.toml
 setup.cfg
 setup.py
-bin/connect
+bin/awsc
 src/aws_connector/__init__.py
 src/aws_connector/account_config.py
 src/aws_connector/connector.py

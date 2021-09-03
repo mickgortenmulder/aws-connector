@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="aws-connector",
-    version="0.0.2",
+    version="0.0.6",
     author="Mick Gortenmulder",
     author_email="mickgortenmulder@gmail.com",
     description="AWS connector",
@@ -29,5 +29,5 @@ setuptools.setup(
         'simple-term-menu>=1.2.1',
         'boto>=2.49.0'
     ],
-    scripts=['bin/connect'],
+    scripts=['bin/awsc']
 )

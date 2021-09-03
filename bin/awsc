@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from aws_connector.version import Version
 from aws_connector.account_config import AccountConfig
 from aws_connector.connector import Connector
@@ -27,6 +28,7 @@ def main():
     )
 
     accounts = AccountConfig()
+    accounts.verify_config()
     selected_account_menu_title = "  Select account\n"
     selected_account_menu_items = [*accounts.get_accounts(), *["Back to Main Menu"]]
     selected_account_menu_back = False

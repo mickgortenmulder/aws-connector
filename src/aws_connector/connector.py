@@ -1,5 +1,6 @@
 import os
 import yaml
+import boto
 from boto.sts import STSConnection
 from aws_connector.account_config import AccountConfig
 
@@ -12,9 +13,9 @@ class Connector:
 
     def assume_role(self, account_name, role):
         mfa_code = input("Enter the MFA code: ")
-
         account = self.config.get_account(account_name)
-        client = STSConnection()
+
+        client = self.start_client()
         response = client.assume_role(
             role_arn="arn:aws:iam::" + str(account['id']) + ":role/" + role,
             role_session_name="test",
@@ -22,6 +23,15 @@ class Connector:
             mfa_token=mfa_code
         )
         self.set_env_and_switch_shell(response.credentials, account)
+
+    def start_client(self):
+        try:
+            client = STSConnection()
+            return client
+        except boto.exception.NoAuthHandlerFound:
+            print("Oops, possible configuration issue in .aws/credentials and/or .aws/config")
+            print("More information found here: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html")
+            exit(1)
 
     def set_env_and_switch_shell(self, credentials, account):
         shell = os.environ['SHELL']
