@@ -1,6 +1,6 @@
 # AWS Connector
 
-This tool provides a AWS CLI connector where you can switch roles to the account you want access to.
+This tool provides an AWS CLI connector that allows you to switch roles to an AWS account you want to access.
 
 # Supported OS
 - Linux
