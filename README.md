@@ -3,8 +3,8 @@
 This tool provides a AWS CLI connector where you can switch roles to the account you want access to.
 
 # Supported OS
-Linux
-MacOS
+- Linux
+- MacOS
 
 # Get started
 First start with making sure the generic .aws/config and .aws/credentials are configured so you can access the AWS account where your user lives that can perform assume-role to other accounts. Then install the Python module with pip and then start creating the config that allows you to start connections to assumable roles in AWS accounts.
