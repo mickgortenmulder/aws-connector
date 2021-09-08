@@ -27,3 +27,20 @@ Copy the file config/config_template.yaml to ~/.aws/awsc-config.yaml and fill in
 ```
   awsc
 ```
+
+# Verify
+The tool will output the below lines after assuming the role you selected in the menu:
+```
+  Enter the MFA code: 123456
+  Switched to /bin/zsh with AWS credentials set for account 123456789123
+```
+
+And you can verify the environment variables:
+```
+  ➜  ~ env |grep AWS
+  AWS_SESSION_TOKEN=xxxxxx
+  AWS_DEFAULT_OUTPUT=text
+  AWS_DEFAULT_REGION=eu-west-1
+  AWS_SECRET_ACCESS_KEY=xxxxxx
+  AWS_ACCESS_KEY_ID=xxxxxx
+```
