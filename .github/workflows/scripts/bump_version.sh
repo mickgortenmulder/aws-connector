@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+pip3 install bump2version
 new_version=`grep version pyproject.toml | awk '{print $3}'`
 echo $new_version
 echo $env
