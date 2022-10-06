@@ -12,6 +12,8 @@ echo $ref_name
 echo $event
 echo $pr_title
 
+git status
+
 if [[ "$commit_message" == *"fix"* ]]; then
   bump2version --current-version $old_version patch pyproject.toml
   echo "Patch."
