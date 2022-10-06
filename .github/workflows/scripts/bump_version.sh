@@ -4,6 +4,7 @@ old_version=`grep version pyproject.toml | awk '{print $3}'`
 # commit_message=`git log -1 --format=%B`
 
 echo $message
+echo $old_version
 # echo $commit_message
 echo $new_version
 echo $env
