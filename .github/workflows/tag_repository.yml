@@ -12,20 +12,6 @@ jobs:
       - name: Check out Git repository
         uses: actions/checkout@v2
 
-      - name: Setup python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.9
-
       - name: Install requirements
         run: |
-          pip install bump2version==1.0.1
-
-      - name: Run bump_version
-        run: |
-           chmod +x ./.github/workflows/scripts/bump_version.sh
-           ./.github/workflows/scripts/bump_version.sh
-        shell: bash
-        env:
-          env: ${{ github.env }}
-          message: ${{ github.event.commits[0].message }}
+          git tag -l
