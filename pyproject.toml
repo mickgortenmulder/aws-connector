@@ -1,3 +1,31 @@
+[project]
+name = "aws-connector"
+description = "AWS connector switch-role tool from central IAM account."
+version = "0.1.0"
+license = "MIT"
+authors = [
+    "Mick Gortenmulder <mickgortenmulder@gmail.com>"
+]
+maintainers = [
+    "Mick Gortenmulder <mickgortenmulder@gmail.com>"
+]
+homepage = "https://pypi.org/project/aws-connector"
+repository = "https://github.com/mickgortenmulder/aws-connector"
+
+[tool.poetry]
+readme = "README.md"
+classifiers = [
+    "Topic :: Software Development :: Build Tools",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+[tool.poetry.dependencies]
+pyyaml = "^5.4.1"
+simple-term-menu = "^1.2.1"
+boto = "^2.49.0"
+
 [build-system]
 requires = [
     "setuptools>=42",

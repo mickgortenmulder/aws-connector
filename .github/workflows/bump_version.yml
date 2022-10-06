@@ -1,0 +1,29 @@
+on: [push]
+# on:
+#   pull_request:
+#     # Sequence of patterns matched against refs/heads
+#     branches:
+#       - 'master'
+#       - 'feature/**'
+
+jobs:
+  check-releasenotes:
+    name: Bump version
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: Run bump_version
+        run: |
+           chmod +x ./.github/workflows/scripts/bump_version.sh
+           ./.github/workflows/scripts/bump_version.sh
+        shell: bash
+        env:
+          env: ${{ github.env }}
+          repository: ${{ github.repository }}
+          repository_owner: ${{ github.repository_owner }}
+          ref_name: ${{ github.ref_name }}
+          # event: ${{ github.event }}
+          pr_title: ${{ github.event.pull_request.title }}
