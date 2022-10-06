@@ -1,3 +1,35 @@
+[project]
+name =
+description =
+version = "0.0.6"
+license =
+authors = [
+    "Mick Gortenmulder <mickgortenmulder@gmail.com>"
+]
+maintainers = [
+    "Mick Gortenmulder <mickgortenmulder@gmail.com>"
+]
+homepage = "https://pypi.org/project/aws-connector"
+repository = "https://github.com/mickgortenmulder/aws-connector"
+
+[tool.poetry]
+readme = "README.md"
+classifiers = [
+    "Topic :: Software Development :: Build Tools",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+packages = [
+    { include = "my_package" },
+    { include = "extra_package/**/*.py" },
+]
+
+[tool.poetry.dependencies]
+pyyaml = "^5.4.1"
+simple-term-menu = "^1.2.1"
+boto = "^2.49.0"
+
 [build-system]
 requires = [
     "setuptools>=42",
