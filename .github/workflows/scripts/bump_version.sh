@@ -23,6 +23,9 @@ if [[ "$commit_message" == *"fix"* ]]; then
   bump2version --current-version $old_version patch pyproject.toml
   new_version=`grep version pyproject.toml | awk '{print $3}'`
   echo $new_version
+  git branch -v
+  git log -1 HEAD
+  git log -1 HEAD^
   git status
   git add pyproject.toml
   git commit -m "(fix) bump version to $new_version"
@@ -33,6 +36,9 @@ elif [[ "$commit_message" == *"feat"* ]]; then
   bump2version --current-version $old_version minor pyproject.toml
   new_version=`grep version pyproject.toml | awk '{print $3}'`
   echo $new_version
+  git branch -v
+  git log -1 HEAD
+  git log -1 HEAD^
   git status
   git add pyproject.toml
   git commit -m "(feat) bump version to $new_version"
@@ -43,6 +49,9 @@ elif [[ "$commit_message" == *"BREAKING CHANGE"* ]]; then
   bump2version --current-version $old_version major pyproject.toml
   new_version=`grep version pyproject.toml | awk '{print $3}'`
   echo $new_version
+  git branch -v
+  git log -1 HEAD
+  git log -1 HEAD^
   git status
   git add pyproject.toml
   git commit -m "bump version to $new_version"
