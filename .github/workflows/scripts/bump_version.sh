@@ -17,7 +17,7 @@ echo $pr_title
 git config --global user.email "mickgortenmulder@gmail.com"
 git config --global user.name "Mick Gortenmulder"
 
-if [[ "$commit_message" == *"fix"* ]]; then
+if [[ "$message" == *"fix"* ]]; then
   echo "Patch."
   bump2version --current-version $old_version patch pyproject.toml
   new_version=`grep version pyproject.toml | awk '{print $3}'`
@@ -30,7 +30,7 @@ if [[ "$commit_message" == *"fix"* ]]; then
   git commit -m "(fix) bump version to $new_version"
   git push origin $ref_name
 
-elif [[ "$commit_message" == *"feat"* ]]; then
+elif [[ "$message" == *"feat"* ]]; then
   echo "Minor."
   bump2version --current-version $old_version minor pyproject.toml
   new_version=`grep version pyproject.toml | awk '{print $3}'`
@@ -43,7 +43,7 @@ elif [[ "$commit_message" == *"feat"* ]]; then
   git commit -m "(feat) bump version to $new_version"
   git push origin $ref_name
 
-elif [[ "$commit_message" == *"BREAKING CHANGE"* ]]; then
+elif [[ "$message" == *"BREAKING CHANGE"* ]]; then
   echo "Major."
   bump2version --current-version $old_version major pyproject.toml
   new_version=`grep version pyproject.toml | awk '{print $3}'`
