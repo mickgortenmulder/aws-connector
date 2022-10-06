@@ -7,7 +7,7 @@ on: [push]
 #       - 'feature/**'
 
 env:
-  REPOINFO: ${{ github }}
+  REPOINFO: ${{ github.env }}
 
 jobs:
   check-releasenotes:
