@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 old_version=`grep version pyproject.toml | awk '{print $3}'`
-commit_message=`git log -1 --format=%B`
+# commit_message=`git log -1 --format=%B`
 
 echo $message
-echo $commit_message
+# echo $commit_message
 echo $new_version
 echo $env
 echo $repository
@@ -13,6 +13,8 @@ echo $ref_name
 echo $event
 echo $pr_title
 
+git config --global user.email "mickgortenmulder@gmail.com"
+git config --global user.name "Mick Gortenmulder"
 git status
 
 if [[ "$commit_message" == *"fix"* ]]; then
