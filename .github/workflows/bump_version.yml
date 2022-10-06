@@ -1,0 +1,31 @@
+name: [Lifecycle Management] Bump version
+on:
+  pull_request:
+    # Sequence of patterns matched against refs/heads
+    branches:
+      - 'master'
+      - 'feature/**'
+
+env:
+  REPOINFO: ${{ github }}
+
+jobs:
+  check-releasenotes:
+    name: Check Release Notes
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: "Say Hello Mona it's Monday"
+        if: ${{ env.DAY_OF_WEEK == 'Monday' }}
+        run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
+        env:
+          First_Name: Mona
+
+      - name: Run bump_version
+        run: |
+           chmod +x ./github/workflows/bump_version.sh
+           ./github/workflows/bump_version.sh
+        shell: bash

@@ -1,8 +1,8 @@
 [project]
-name =
-description =
-version = "0.0.6"
-license =
+name = "aws-connector"
+description = "AWS connector switch-role tool from central IAM account."
+version = "0.1.0"
+license = "MIT"
 authors = [
     "Mick Gortenmulder <mickgortenmulder@gmail.com>"
 ]
@@ -19,10 +19,6 @@ classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules"
     "Programming Language :: Python :: 3",
     "Operating System :: OS Independent",
-]
-packages = [
-    { include = "my_package" },
-    { include = "extra_package/**/*.py" },
 ]
 
 [tool.poetry.dependencies]
