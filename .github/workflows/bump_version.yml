@@ -15,6 +15,15 @@ jobs:
       - name: Check out Git repository
         uses: actions/checkout@v2
 
+      - name: Setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: Install requirements
+        run: |
+          pip install bump2version==1.0.1
+
       - name: Run bump_version
         run: |
            chmod +x ./.github/workflows/scripts/bump_version.sh
@@ -25,5 +34,5 @@ jobs:
           repository: ${{ github.repository }}
           repository_owner: ${{ github.repository_owner }}
           ref_name: ${{ github.ref_name }}
-          # event: ${{ github.event }}
+          message: ${{ github.event.commits[0].message }}
           pr_title: ${{ github.event.pull_request.title }}
