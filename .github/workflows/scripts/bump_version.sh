@@ -22,3 +22,5 @@ elif [[ "$commit_message" == *"BREAKING CHANGE"* ]]; then
   bump2version --current-version $old_version major pyproject.toml
   echo "Major."
 fi
+
+git add . ; git commit -m 'bump version'
