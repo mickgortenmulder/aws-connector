@@ -1,10 +1,7 @@
-on: [push]
-# on:
-#   pull_request:
-#     # Sequence of patterns matched against refs/heads
-#     branches:
-#       - 'master'
-#       - 'feature/**'
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   check-releasenotes:
@@ -31,8 +28,3 @@ jobs:
         shell: bash
         env:
           env: ${{ github.env }}
-          repository: ${{ github.repository }}
-          repository_owner: ${{ github.repository_owner }}
-          ref_name: ${{ github.ref_name }}
-          message: ${{ github.event.commits[0].message }}
-          pr_title: ${{ github.event.pull_request.title }}
