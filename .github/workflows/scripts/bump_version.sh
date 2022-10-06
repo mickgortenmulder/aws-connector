@@ -10,3 +10,12 @@ echo $repository_owner
 echo $ref_name
 echo $event
 echo $pr_title
+
+
+if [[ "$commit_message" == *fix* ]]; then
+  echo "Patch."
+elif [[ "$commit_message" == *feat* ]]; then
+  echo "Minor."
+elif [[ "$commit_message" == *BREAKING CHANGE* ]]; then
+  echo "Major."
+fi
