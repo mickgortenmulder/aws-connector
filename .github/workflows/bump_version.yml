@@ -26,6 +26,6 @@ jobs:
 
       - name: Run bump_version
         run: |
-           chmod +x ./github/workflows/bump_version.sh
-           ./github/workflows/bump_version.sh
+           chmod +x ./github/workflows/scripts/bump_version.sh
+           ./github/workflows/scripts/bump_version.sh
         shell: bash
