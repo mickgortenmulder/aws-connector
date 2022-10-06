@@ -29,7 +29,7 @@ if [ "$old_version" != "$new_version" ]; then
   new_version=`grep version pyproject.toml | awk '{print $3}'`
   echo $new_version
   git add pyproject.toml
-  git commit -m "(fix) bump version to $new_version"
+  git commit -m "Automatic version update to $new_version"
   git push origin $ref_name
 else
   echo "Nothing to update"
