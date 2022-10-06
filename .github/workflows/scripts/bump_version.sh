@@ -16,10 +16,10 @@ echo $pr_title
 
 git config --global user.email "mickgortenmulder@gmail.com"
 git config --global user.name "Mick Gortenmulder"
+git add . ; git commit -m 'Commit changes'
 
 if [[ "$message" == *"fix"* ]]; then
   echo "Patch."
-  git status
   bump2version --current-version $old_version patch pyproject.toml
   new_version=`grep version pyproject.toml | awk '{print $3}'`
   echo $new_version
