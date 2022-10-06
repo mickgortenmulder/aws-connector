@@ -25,5 +25,5 @@ jobs:
           repository: ${{ github.repository }}
           repository_owner: ${{ github.repository_owner }}
           ref_name: ${{ github.ref_name }}
-          # event: ${{ github.event }}
+          message: ${{ github.event.head_commit.message }}
           pr_title: ${{ github.event.pull_request.title }}
