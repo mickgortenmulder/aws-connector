@@ -19,27 +19,30 @@ git config --global user.name "Mick Gortenmulder"
 git status
 
 if [[ "$commit_message" == *"fix"* ]]; then
+  echo "Patch."
   bump2version --current-version $old_version patch pyproject.toml
   new_version=`grep version pyproject.toml | awk '{print $3}'`
-  echo "Patch."
+  echo $new_version
   git status
   git add pyproject.toml
   git commit -m "(fix) bump version to $new_version"
   git push origin $ref_name
 
 elif [[ "$commit_message" == *"feat"* ]]; then
+  echo "Minor."
   bump2version --current-version $old_version minor pyproject.toml
   new_version=`grep version pyproject.toml | awk '{print $3}'`
-  echo "Minor."
+  echo $new_version
   git status
   git add pyproject.toml
   git commit -m "(feat) bump version to $new_version"
   git push origin $ref_name
 
 elif [[ "$commit_message" == *"BREAKING CHANGE"* ]]; then
-  bump2version --current-version $old_version major pyproject.toml
   echo "Major."
+  bump2version --current-version $old_version major pyproject.toml
   new_version=`grep version pyproject.toml | awk '{print $3}'`
+  echo $new_version
   git status
   git add pyproject.toml
   git commit -m "bump version to $new_version"
