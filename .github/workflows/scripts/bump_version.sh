@@ -8,6 +8,7 @@ echo "Env: $env"
 git config --global user.email "mickgortenmulder@gmail.com"
 git config --global user.name "Mick Gortenmulder"
 git add . ; git commit -m 'Commit changes'
+git branch -v
 
 if [[ "$message" == *"fix"* ]]; then
   echo "Patch update."
