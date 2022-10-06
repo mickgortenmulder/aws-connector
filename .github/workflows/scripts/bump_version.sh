@@ -28,5 +28,9 @@ elif [[ "$commit_message" == *"BREAKING CHANGE"* ]]; then
   echo "Major."
 fi
 
+new_version=`grep version pyproject.toml | awk '{print $3}'`
+
 git status
-git add . ; git commit -m 'bump version'
+git add pyproject.toml
+git commit -m "bump version to $new_version"
+git push origin $ref_name
