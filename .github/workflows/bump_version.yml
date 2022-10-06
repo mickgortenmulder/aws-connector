@@ -1,5 +1,4 @@
 name: Bump version
-run-name: ${{ github.actor }} is bumping the version. 🚀
 on:
   pull_request:
     # Sequence of patterns matched against refs/heads
