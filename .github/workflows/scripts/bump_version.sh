@@ -16,7 +16,6 @@ echo $pr_title
 
 git config --global user.email "mickgortenmulder@gmail.com"
 git config --global user.name "Mick Gortenmulder"
-git status
 
 if [[ "$commit_message" == *"fix"* ]]; then
   echo "Patch."
