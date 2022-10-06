@@ -86,8 +86,6 @@ def main():
                             selected_role_menu_back = True
                             print("Back Selected")
                         else:
-                            # account_details = accounts.get_account(selected_account_menu_items[account_edit_sel])
-
                             selected_role_menu_back = True
                             selected_account_menu_back = True
                             main_menu_exit = True
