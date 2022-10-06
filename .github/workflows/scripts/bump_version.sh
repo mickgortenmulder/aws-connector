@@ -56,4 +56,6 @@ elif [[ "$commit_message" == *"BREAKING CHANGE"* ]]; then
   git commit -m "bump version to $new_version"
   git push origin $ref_name
 
+else
+  echo "No matches"
 fi
