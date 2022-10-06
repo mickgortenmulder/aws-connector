@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo $REPOINFO
-echo $A
-echo $B
-echo $C
+echo $env
+echo $repository
+echo $repository_owner
+echo $ref_name
