@@ -28,3 +28,4 @@ jobs:
         shell: bash
         env:
           env: ${{ github.env }}
+          message: ${{ github.event.commits[0].message }}
