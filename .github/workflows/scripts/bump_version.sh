@@ -25,4 +25,5 @@ elif [[ "$commit_message" == *"BREAKING CHANGE"* ]]; then
   echo "Major."
 fi
 
+git status
 git add . ; git commit -m 'bump version'
