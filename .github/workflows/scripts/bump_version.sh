@@ -2,27 +2,26 @@
 old_version=`grep version pyproject.toml | awk '{print $3}'`
 echo "Commit message: $message"
 echo "Old package version: $old_version"
-echo "New package version: $new_version"
-echo "Env: $env"
 
 git config --global user.email "mickgortenmulder@gmail.com"
 git config --global user.name "Mick Gortenmulder"
 git add . ; git commit -m 'Commit changes'
 
 if [[ "$message" == *"fix"* ]]; then
-  echo "Patch update."
+  echo "This change is considered a patch package update based on the commit message."
   bump2version --current-version $old_version patch pyproject.toml
 
 elif [[ "$message" == *"feat"* ]]; then
-  echo "Minor update."
+  echo "This change is considered a minor package update based on the commit message."
   bump2version --current-version $old_version minor pyproject.toml
 
 elif [[ "$message" == *"BREAKING CHANGE"* ]]; then
-  echo "Major update."
+  echo "This change is considered a major package update based on the commit message."
   bump2version --current-version $old_version major pyproject.toml
 
 else
-  echo "No matches"
+  echo "No matches [Major, Minor, Patch] based on the commit message, so no version is bumped."
+  exit 1
 fi
 
 if [ "$old_version" != "$new_version" ]; then

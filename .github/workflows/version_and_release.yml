@@ -4,8 +4,8 @@ on:
       - master
 
 jobs:
-  check-releasenotes:
-    name: Bump version
+  update-package-version:
+    name: Update package version
     runs-on: ubuntu-latest
 
     steps:
@@ -27,5 +27,30 @@ jobs:
            ./.github/workflows/scripts/bump_version.sh
         shell: bash
         env:
-          env: ${{ github.env }}
           message: ${{ github.event.commits[0].message }}
+
+  update-tag:
+    name: Update tag with new package version
+    needs: update-package-version
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: Install requirements
+        run: |
+          git tag -l
+
+  upload-package:
+    name: Upload new versioned package to pypi.org
+    needs: update-tag
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: Install requirements
+        run: |
+          git tag -l
