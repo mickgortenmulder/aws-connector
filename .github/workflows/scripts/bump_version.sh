@@ -24,8 +24,7 @@ elif [[ "$shrt_message" == *"docs"* ]]; then
   bump2version --current-version $old_version patch pyproject.toml
 
 else
-  echo "No matches [Major, Minor, Patch] based on the commit message, so no version is bumped."
-  echo "Commit messages need to contain 'fix:', 'feat:', 'docs:' or 'BREAKING CHANGE:'."
+  echo "Commit message error, exiting."
   exit 1
 fi
 
@@ -36,6 +35,6 @@ if [ "$old_version" != "$new_version" ]; then
   git commit -m "Automatic version update to $new_version"
   git push origin $ref_name
 else
-  echo "Nothing to update"
+  echo "Nothing to update, exiting."
   exit 1
 fi
