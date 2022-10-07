@@ -4,16 +4,16 @@ shrt_message=`echo $message | cut -c1-5`
 echo "Checking for valid commit message containing keys in order to determine the update type."
 
 if [[ "$shrt_message" == *"fix:"* ]]; then
-  echo "This change is considered a patch package update based on the commit message: $message"
+  echo "Matched on 'fix:' as a patch update"
 
 elif [[ "$shrt_message" == *"feat:"* ]]; then
-  echo "This change is considered a minor package update based on the commit message: $message"
+  echo "Matched on 'feat:' as a minor update"
 
 elif [[ "$message" == *"BREAKING CHANGE:"* ]]; then
-  echo "This change is considered a major package update based on the commit message: $message"
+  echo "Matched on 'BREAKING CHANGE:' as a major update"
 
 elif [[ "$shrt_message" == *"docs:"* ]]; then
-  echo "This change is considered a documentation update based on the commit message: $message"
+  echo "Matched on 'docs:' as a documentation update"
 
 else
   echo "No matches based on the commit message, so exiting."
