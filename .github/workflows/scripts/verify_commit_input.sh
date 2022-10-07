@@ -16,6 +16,6 @@ elif [[ "$shrt_message" == *"docs:"* ]]; then
   echo "Matched on 'docs:' as a documentation update"
 
 else
-  echo "No matches based on the commit message, so exiting."
+  echo "No matches based on the commit message, exiting."
   exit 1
 fi
