@@ -17,8 +17,6 @@ requires-python = ">=3.9"
 "Bug Tracker" = "https://github.com/mickgortenmulder/aws-connector/issues"
 
 [tool.poetry]
-homepage = "https://pypi.org/project/aws-connector"
-repository = "https://github.com/mickgortenmulder/aws-connector"
 readme = "README.md"
 classifiers = [
     "Topic :: Software Development :: Build Tools",
