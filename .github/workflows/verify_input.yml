@@ -1,0 +1,20 @@
+on:
+  pull_request:
+    types: [opened, reopened]
+
+jobs:
+  verify-input:
+    name: Verify commit input
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: Verify commit message
+        run: |
+           chmod +x ./.github/workflows/scripts/verify_commit_input.sh
+           ./.github/workflows/scripts/verify_commit_input.sh
+        shell: bash
+        env:
+          message: ${{ github.event.commits[0].message }}
