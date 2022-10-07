@@ -4,6 +4,8 @@ on:
       - "feature/*"
   pull_request:
     types: [opened, reopened]
+    branches:
+      - "feature/*"
 
 jobs:
   verify-input:
