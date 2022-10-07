@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 shrt_message=`echo $message | cut -c1-5`
-
+echo "Full message: $message"
+echo "Short message: $shrt_message"
 echo "Checking for valid commit message containing keys in order to determine the update type."
 
 if [[ "$shrt_message" == *"fix:"* ]]; then
