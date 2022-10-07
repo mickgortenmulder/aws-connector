@@ -25,8 +25,7 @@ elif [[ "$shrt_message" == *"docs"* ]]; then
 
 else
   echo "No matches [Major, Minor, Patch] based on the commit message, so no version is bumped."
-  echo "Commit messages need to contain 'fix:', 'feat:' or 'BREAKING CHANGE:'."
-  echo "Read: https://www.conventionalcommits.org/en/v1.0.0/"
+  echo "Commit messages need to contain 'fix:', 'feat:', 'docs:' or 'BREAKING CHANGE:'."
   exit 1
 fi
 
