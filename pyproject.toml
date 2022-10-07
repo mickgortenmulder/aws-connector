@@ -1,18 +1,24 @@
 [project]
 name = "aws-connector"
 description = "AWS connector switch-role tool from central IAM account."
+readme = "README.md"
 version = "0.2.0"
 license = {file = "LICENSE"}
 authors = [
-    "Mick Gortenmulder <mickgortenmulder@gmail.com>"
+  { name="Mick Gortenmulder", email="mickgortenmulder@gmail.com" },
 ]
 maintainers = [
-    "Mick Gortenmulder <mickgortenmulder@gmail.com>"
+  { name="Mick Gortenmulder", email="mickgortenmulder@gmail.com" },
 ]
-homepage = "https://pypi.org/project/aws-connector"
-repository = "https://github.com/mickgortenmulder/aws-connector"
+requires-python = ">=3.9"
+
+[project.urls]
+"Homepage" = "https://github.com/mickgortenmulder/aws-connector"
+"Bug Tracker" = "https://github.com/mickgortenmulder/aws-connector/issues"
 
 [tool.poetry]
+homepage = "https://pypi.org/project/aws-connector"
+repository = "https://github.com/mickgortenmulder/aws-connector"
 readme = "README.md"
 classifiers = [
     "Topic :: Software Development :: Build Tools",
@@ -28,7 +34,7 @@ boto = "^2.49.0"
 
 [build-system]
 requires = [
-    "setuptools>=42",
+    "setuptools>=63",
     "wheel",
     "pyyaml>=5.4.1",
     "simple-term-menu>=1.2.1",
