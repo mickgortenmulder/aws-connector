@@ -2,7 +2,7 @@
 name = "aws-connector"
 description = "AWS connector switch-role tool from central IAM account."
 readme = "README.md"
-version = "0.2.0"
+version = "0.2.3"
 license = {file = "LICENSE"}
 authors = [
   { name="Mick Gortenmulder", email="mickgortenmulder@gmail.com" },
