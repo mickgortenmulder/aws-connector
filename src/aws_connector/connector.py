@@ -18,7 +18,7 @@ class Connector:
         client = self.start_client()
         response = client.assume_role(
             role_arn="arn:aws:iam::" + str(account['id']) + ":role/" + role,
-            role_session_name="test",
+            role_session_name=mfa_code,
             mfa_serial_number=self.mfa_serial,
             mfa_token=mfa_code
         )
