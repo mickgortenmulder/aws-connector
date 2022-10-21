@@ -2,6 +2,7 @@
 old_version=`grep version pyproject.toml | awk '{print $3}'`
 echo "Old package version: $old_version"
 shrt_message=`echo $message | cut -c1-4`
+echo "Commit message: $shrt_message"
 
 git config --global user.email "mickgortenmulder@gmail.com"
 git config --global user.name "Mick Gortenmulder"
