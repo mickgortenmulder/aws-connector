@@ -32,6 +32,11 @@ if [ "$old_version" != "$new_version" ]; then
   new_version=`grep version pyproject.toml | awk '{print $3}'`
   echo $new_version
   git add pyproject.toml
+
+  echo "Auto generating changelog from $new_version into CHANGELOG.md."
+  auto-changelog --latest-version $new_version --unreleased --github --description "This is an automatically generate changelog for the aws-connector Python package"
+  git add CHANGELOG.md
+
   git commit -m "Automatic version update to $new_version"
   git push origin $ref_name
 else
