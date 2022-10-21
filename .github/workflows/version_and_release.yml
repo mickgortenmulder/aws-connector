@@ -29,9 +29,33 @@ jobs:
         env:
           message: ${{ github.event.commits[0].message }}
 
+  auto-generate-changelog:
+    name: Auto generate changelog
+    needs: update-package-version
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: Setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: Install requirements
+        run: |
+          pip install auto-changelog==0.5.3
+
+      - name: Run auto-changelog
+        run: |
+           chmod +x ./.github/workflows/scripts/auto_generate_changelog.sh
+           ./.github/workflows/scripts/auto_generate_changelog.sh
+        shell: bash
+
   update-tag:
     name: Update tag with new package version
-    needs: update-package-version
+    needs: auto-generate-changelog
     runs-on: ubuntu-latest
 
     steps:
@@ -54,3 +78,9 @@ jobs:
       - name: Install requirements
         run: |
           git tag -l
+
+# Release:
+# pip3 install --upgrade build twine
+# python3 -m build
+# twine upload --repository testpypi dist/*
+# twine upload --repository pypi dist/*
