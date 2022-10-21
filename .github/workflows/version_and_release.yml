@@ -24,9 +24,8 @@ jobs:
 
       - name: Run bump_version
         run: |
-           cd .github/workflows/scripts
-           chmod +x bump_version_and_generate_changelog.sh
-           sh bump_version_and_generate_changelog.sh
+           chmod +x ./.github/workflows/scripts/bump_version_and_generate_changelog.sh
+           sh ./.github/workflows/scripts/bump_version_and_generate_changelog.sh
         shell: bash
         env:
           message: ${{ github.event.commits[0].message }}
