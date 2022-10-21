@@ -30,6 +30,9 @@ pyyaml = "^5.4.1"
 simple-term-menu = "^1.2.1"
 boto = "^2.49.0"
 
+[tool.poetry.scripts]
+file-script = {source = "bin/awsc", type= "file"}
+
 [build-system]
 requires = [
     "setuptools>=63",
