@@ -4,8 +4,8 @@ on:
       - master
 
 jobs:
-  update-package-version-and-generate-changelog:
-    name: Update package version and generate changelog
+  versioning-actions:
+    name: General versioning actions (Bumping, tagging, changelog generating)
     runs-on: ubuntu-latest
 
     steps:
@@ -31,24 +31,9 @@ jobs:
         env:
           message: ${{ github.event.commits[0].message }}
 
-  update-tag:
-    name: Update tag with new package version
-    needs: update-package-version-and-generate-changelog
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Check out Git repository
-        uses: actions/checkout@v2
-
-      - name: Tag last commit with last version
-        run: |
-           chmod +x ./.github/workflows/scripts/update_tags.sh
-           .github/workflows/scripts/update_tags.sh
-        shell: bash
-
   upload-package:
     name: Upload new versioned package to pypi.org
-    needs: update-tag
+    needs: versioning-actions
     runs-on: ubuntu-latest
 
     steps:

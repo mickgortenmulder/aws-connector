@@ -40,6 +40,11 @@ if [ "$old_version" != "$new_version" ]; then
 
   git commit -m "Automatic version update to $new_version"
   git push origin $ref_name
+
+  echo "Starting the tagging"
+  git tag $new_version -a
+  git push origin --tags
+  echo "Tagging done"
 else
   echo "Nothing to update, exiting."
   exit 1
