@@ -42,7 +42,7 @@ if [ "$old_version" != "$new_version" ]; then
   git push origin $ref_name
 
   echo "Starting the tagging"
-  git tag $new_version -a
+  git tag $new_version
   git push origin --tags
   echo "Tagging done"
 else
