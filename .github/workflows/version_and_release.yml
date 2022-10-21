@@ -40,16 +40,11 @@ jobs:
       - name: Check out Git repository
         uses: actions/checkout@v2
 
-      - name: Setup python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.9
-
       - name: Tag last commit with last version
         run: |
-          old_version=`grep version pyproject.toml | awk '{print $3}'`
-          git tag $old_version -a
-          git push origin --tags
+           chmod +x ./.github/workflows/scripts/update_tags.sh
+           .github/workflows/scripts/update_tags.sh
+        shell: bash
 
   upload-package:
     name: Upload new versioned package to pypi.org
