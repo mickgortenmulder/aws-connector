@@ -1,3 +1,5 @@
+import os
+
 class Version():
     def __init__(self):
-        self.version = "0.0.6"
+        self.version = os.system("grep version pyproject.toml | awk '{print $3}'")
